@@ -46,7 +46,7 @@ export class ContextPackCardComponent implements OnInit {
         Validators.required,
       ]))
     });
-    this.isAdmin = this.contextpackservice.checkIfAdmin(localStorage.getItem('admin'));
+    this.isAdmin = this.contextpackservice.checkIfAdmin(localStorage.getItem('loggedIn'));
   }
 
   displayEnabled(status: boolean){

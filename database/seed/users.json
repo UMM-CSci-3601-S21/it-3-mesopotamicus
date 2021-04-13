@@ -123,6 +123,62 @@
     "givenName": "Joe",
     "sub": "helloImanID",
     "admin": true
+  },
+  {
+    "_id": {
+      "$oid": "606a5a9fd2b1da77da015c10"
+    },
+    "email": "Mill7707@umn.edu",
+    "emailVerified": true,
+    "name": "Jeffrey",
+    "pictureUrl": "null",
+    "locale": "en",
+    "familyName": "M",
+    "givenName": "Jeffrey",
+    "sub": "jeff",
+    "admin": true
+  },
+  {
+    "_id": {
+      "$oid": "606a5a9fd2b1da77da015cwji"
+    },
+    "email": "abbas070@umn.edu",
+    "emailVerified": true,
+    "name": "Elmurad",
+    "pictureUrl": "null",
+    "locale": "en",
+    "familyName": "A",
+    "givenName": "Elmurad",
+    "sub": "Elmurad",
+    "admin": true
+  },
+  {
+    "_id": {
+      "$oid": "606a5a9fd2b1da77da015cwww"
+    },
+    "email": "hilsg008@umn.edu",
+    "emailVerified": true,
+    "name": "Lloyd",
+    "pictureUrl": "null",
+    "locale": "en",
+    "familyName": "H",
+    "givenName": "Lloyd",
+    "sub": "lloyd",
+    "admin": true
+  },
+  {
+    "_id": {
+      "$oid": "606a5a9fd2b1da77da015cwwe"
+    },
+    "email": "joh18484@morris.umn.edu",
+    "emailVerified": true,
+    "name": "Blake",
+    "pictureUrl": "null",
+    "locale": "en",
+    "familyName": "J",
+    "givenName": "Blake",
+    "sub": "blake",
+    "admin": true
   }
 ]
 

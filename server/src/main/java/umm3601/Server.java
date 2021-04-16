@@ -60,6 +60,8 @@ public class Server {
     server.post("/api/contextpacks/:id/editpack", contextPackController::editContextPack, roles(MyRole.ADMIN));
     // editing information about wordlists
     server.post("/api/contextpacks/:id/editlist", contextPackController::editWordlist, roles(MyRole.ADMIN));
+
+    server.post("/api/contextpacks/:id", contextPackController::addWordList, roles(MyRole.ADMIN));
     // add forms to words in wordlists
 
     server.exception(Exception.class, (e, ctx) -> {

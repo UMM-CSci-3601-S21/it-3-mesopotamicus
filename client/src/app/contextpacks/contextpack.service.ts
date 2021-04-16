@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { ContextPack } from './contextpack';
+import { ContextPack, Wordlist } from './contextpack';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -117,6 +117,10 @@ export class ContextPackService {
     return this.httpClient.post<ContextPack>(this.contextpackUrl + '/' + contextpack._id +'/editlist', null , {
       params: httpParams
    });
+  }
+
+  addWordList(newWordList: Wordlist, id: string) {
+    return this.httpClient.post<Wordlist>(this.contextpackUrl + '/' + id, newWordList).pipe(map(res => res));
   }
 
 }

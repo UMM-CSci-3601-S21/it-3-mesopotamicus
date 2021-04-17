@@ -184,8 +184,34 @@
   <button mat-icon-button matTooltip="Add to New and Existing" matTooltipPosition="above" color="accent" class="addView" (click)="this.editing = !this.editing">
     <mat-icon>add</mat-icon>
   </button>
+  <button mat-icon-button matTooltip="Add New Wordlist" matTooltipPosition="above" color="accent" class="addView" (click)="this.adding = !this.adding">
+    <mat-icon>library_add</mat-icon>
+  </button>
 
  <br>
+
+  <mat-accordion class="addWordlist" *ngIf="this.adding">
+
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="wordlistname">
+      <mat-hint>Wordlist name length must be greater than 0</mat-hint>
+    </mat-form-field>
+
+    <div class="enabledWordlist">
+      <mat-label>Enabled: </mat-label>
+      <mat-form-field appearance="fill">
+        <mat-label>Enabled:</mat-label>
+        <mat-select [(ngModel)]="type">
+          <mat-option value= true>True</mat-option>
+          <mat-option value= false>False</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button mat-icon-button matTooltip="Add Wordlist" class="submitbutton" (click)="submitWordlist()"><mat-icon>add</mat-icon></button>
+
+  </mat-accordion>
 
   <mat-accordion class="example-headers-align" *ngIf="this.editing">
 

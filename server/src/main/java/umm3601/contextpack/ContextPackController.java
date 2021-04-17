@@ -155,6 +155,17 @@ public class ContextPackController {
 
   }
 
+  public void addWordList(Context ctx){
+
+    String id = ctx.pathParam("id");
+    Wordlist newWordList = ctx.bodyValidator(Wordlist.class).get();
+    contextPackCollection.updateById(id, Updates.push("wordlists", newWordList));
+
+    ctx.status(201);
+    ctx.json(ImmutableMap.of("id", contextPackCollection.findOneById(id)._id));
+
+  }
+
   public int getListIndex(ContextPack pack, String listname){
     int index=0;
     boolean match = false;

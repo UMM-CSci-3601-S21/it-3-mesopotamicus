@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ContextPack, Word, Wordlist} from './contextpack';
 import { ContextPackService } from './contextpack.service';
 
@@ -20,9 +21,15 @@ export class ContextPackCardComponent implements OnInit {
   wordlistSelected = 'true';
   contextPackForm: FormGroup;
   editing = false;
+  adding = false;
   removable = false;
   enabled = 'true';
   isAdmin: boolean;
+  id= '';
+
+  wordlistname = '';
+  type: boolean;
+  newWordList: Wordlist = {name: '', enabled:false,nouns:[],verbs:[],adjectives:[],misc:[]};
 
   validationMessages = {
     word: [
@@ -56,6 +63,13 @@ export class ContextPackCardComponent implements OnInit {
     if(status === true){
       return 'Enabled';
     }
+  }
+
+  submitWordlist(){
+    this.newWordList.name = this.wordlistname;
+    this.newWordList.enabled = this.type;
+    this.contextpackservice.addWordList(this.newWordList, this.contextpack._id).subscribe();
+    window.location.reload();
   }
 
   save(field: string, newData: string) {

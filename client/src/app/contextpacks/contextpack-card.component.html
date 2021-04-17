@@ -198,7 +198,7 @@
       <mat-hint>Wordlist name length must be greater than 0</mat-hint>
     </mat-form-field>
 
-    <div>
+    <div class="enabledWordlist">
       <mat-label>Enabled: </mat-label>
       <mat-form-field appearance="fill">
         <mat-label>Enabled:</mat-label>
@@ -209,7 +209,7 @@
       </mat-form-field>
     </div>
 
-    <button (click)="submitWordlist()">Add Wordlist</button>
+    <button mat-icon-button matTooltip="Add Wordlist" class="submitbutton" (click)="submitWordlist()"><mat-icon>add</mat-icon></button>
 
   </mat-accordion>
 

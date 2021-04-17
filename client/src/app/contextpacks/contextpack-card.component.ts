@@ -38,7 +38,7 @@ export class ContextPackCardComponent implements OnInit {
     wordlist: {type: 'required', message: 'Choose a Word List'}
   };
 
-  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, private contextpackservice: ContextPackService, private route: Router)
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar, private contextpackservice: ContextPackService)
   {this.valueChangeEvents = new EventEmitter();}
 
   ngOnInit(): void {

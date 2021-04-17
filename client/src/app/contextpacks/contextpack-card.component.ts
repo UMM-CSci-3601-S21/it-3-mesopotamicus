@@ -69,7 +69,7 @@ export class ContextPackCardComponent implements OnInit {
     this.newWordList.name = this.wordlistname;
     this.newWordList.enabled = this.type;
     this.contextpackservice.addWordList(this.newWordList, this.contextpack._id).subscribe();
-    window.location.reload()
+    window.location.reload();
   }
 
   save(field: string, newData: string) {

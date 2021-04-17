@@ -14,7 +14,7 @@ import { ContextPackCardComponent } from './contextpack-card.component';
 export class AddContextpacksComponent implements OnInit {
   contextPackForm: FormGroup;
   isShown = false;
-  contextpackcard = new ContextPackCardComponent(this.fb,this.snackBar,this.contextPackService);
+  contextpackcard = new ContextPackCardComponent(this.fb,this.snackBar,this.contextPackService, this.router);
   tabs = [];
   activeTab = this.tabs[0];
   selected = new FormControl(0);

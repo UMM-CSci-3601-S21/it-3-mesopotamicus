@@ -96,7 +96,7 @@ const MATERIAL_MODULES: any[] = [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '239479898228-jsa8kqtcnqg96v8r74j2mp9jbbp01scu.apps.googleusercontent.com'
+              '540884050029-uo57oue6facfb5fkmu703s8o81bd8mlq.apps.googleusercontent.com'
             )
           }
         ]

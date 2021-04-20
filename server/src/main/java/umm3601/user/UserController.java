@@ -65,7 +65,7 @@ public class UserController {
 
   GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
     // Specify the CLIENT_ID of the app that accesses the backend:
-    .setAudience(Collections.singletonList("239479898228-jsa8kqtcnqg96v8r74j2mp9jbbp01scu.apps.googleusercontent.com"))
+    .setAudience(Collections.singletonList("540884050029-uo57oue6facfb5fkmu703s8o81bd8mlq.apps.googleusercontent.com"))
     // Or, if multiple clients access the backend:
     //.setAudience(Arrays.asList(CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3))
     .build();

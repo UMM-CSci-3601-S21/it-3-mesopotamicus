@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "6079d0ef60c5adfd3bbccccc"
+  },
+  "name": "Josh",
+  "assignedContextPacks": []
+},
+
+{
+  "_id": {
+    "$oid": "588935f51c55b55c75abbbbb"
+  },
+  "name": "Jeff",
+  "assignedContextPacks": []
+}
+]

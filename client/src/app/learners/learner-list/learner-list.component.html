@@ -1,0 +1,27 @@
+<div *ngIf="isSignedIn === false || isSignedIn === undefined; else templateLearners">
+  <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
+
+    <mat-card class="header">
+      <mat-card-title>Learners:</mat-card-title>
+
+    </mat-card>
+
+  <div class="learnerContainer" fxLayout="column">
+    <app-learner-card [simple]=true *ngFor="let learner of filteredLearners" class="learner-card" [learner]="learner"  fxFlex="1 1"></app-learner-card>
+  </div>
+
+  </div>
+</div>
+<ng-template #templateLearners>
+  <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
+
+    <mat-card class="header">
+      <mat-card-title>Learners:</mat-card-title>
+    </mat-card>
+
+  <div class="learnerContainer" fxLayout="column">
+    <app-learner-card [simple]=true *ngFor="let learner of filteredLearners" class="learner-card" [learner]="learner"  fxFlex="1 1"></app-learner-card>
+  </div>
+
+  </div>
+</ng-template>

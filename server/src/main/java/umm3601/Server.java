@@ -16,6 +16,7 @@ import io.javalin.core.util.RouteOverviewPlugin;
 import io.javalin.http.Context;
 import io.javalin.http.UnauthorizedResponse;
 import umm3601.contextpack.ContextPackController;
+import umm3601.learner.LearnerController;
 import umm3601.user.UserController;
 
 public class Server {
@@ -42,6 +43,8 @@ public class Server {
 
     ContextPackController contextPackController = new ContextPackController(database);
     UserController userController = new UserController(database);
+    LearnerController learnerController = new LearnerController(database);
+
 
     Javalin server = serverStarter(mongoClient);
 
@@ -52,6 +55,9 @@ public class Server {
 
     server.get("/api/contextpacks", contextPackController::getContextPacks, roles(MyRole.ANYONE));
     server.get("/api/contextpacks/:id", contextPackController::getContextPack, roles(MyRole.ANYONE));
+
+    server.get("/api/learners", learnerController::getLearners, roles(MyRole.ANYONE));
+    server.get("/api/learners/:id", learnerController::getLearner, roles(MyRole.ANYONE));
 
     server.post("/api/users", userController::checkToken, roles(MyRole.ANYONE));
 

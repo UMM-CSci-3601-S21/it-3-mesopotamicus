@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.google.common.collect.ImmutableMap;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Updates;
 
 import org.bson.types.ObjectId;
 import org.mongojack.JacksonMongoCollection;
@@ -52,6 +53,28 @@ public class LearnerController {
   public void getLearners(Context ctx){
     ctx.json(learnerCollection.find()
     .into(new ArrayList<>()));
+  }
+
+  public void addNewContextPack(Context ctx){
+    Learner newLearner = ctx.bodyValidator(Learner.class)
+      .check(pack -> pack.name != null )
+      .get();
+
+      learnerCollection.insertOne(newLearner);
+      ctx.status(201);
+      ctx.json(ImmutableMap.of("id", newLearner._id));
+  }
+
+  public void addContextPackToLearner(Context ctx){
+
+    String idLearner = ctx.pathParam("id");
+    ContextPack ctxPack = ctx.bodyValidator(ContextPack.class).get();
+
+    learnerCollection.updateById(idLearner, Updates.push("assignedContextPacks", ctxPack));
+
+    ctx.status(201);
+    ctx.json(ImmutableMap.of("id", learnerCollection.findOneById(idLearner)._id));
+
   }
 
 }

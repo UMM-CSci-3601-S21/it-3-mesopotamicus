@@ -1,3 +1,47 @@
+package umm3601.learner;
+
+import static com.mongodb.client.model.Filters.eq;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.common.collect.ImmutableMap;
+import com.mockrunner.mock.web.MockHttpServletRequest;
+import com.mockrunner.mock.web.MockHttpServletResponse;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.ServerAddress;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import io.javalin.http.BadRequestResponse;
+import io.javalin.http.Context;
+import io.javalin.http.NotFoundResponse;
+import io.javalin.http.util.ContextUtil;
+import io.javalin.plugin.json.JavalinJson;
+import umm3601.contextpack.ContextPackControllerSpec;
+
+
 public class LearnerControllerSpec{
 
   MockHttpServletRequest mockReq = new MockHttpServletRequest();
@@ -36,9 +80,7 @@ public class LearnerControllerSpec{
     testID = new ObjectId();
     Document testLearnerID = new Document()
     .append("_id", testID)
-    .append("name", "John")
-    .append("assignedContextPacks", []);
-
+    .append("name", "John");
     learnerDocuments.insertOne(testLearnerID);
 
   }
@@ -50,7 +92,7 @@ public class LearnerControllerSpec{
   }
 
   @Test
-  public void GetAllLearners() throws IOException {
+  public void getAllLearners() throws IOException {
 
     // Create our fake Javalin context
     Context ctx = ContextUtil.init(mockReq, mockRes, "api/learners");

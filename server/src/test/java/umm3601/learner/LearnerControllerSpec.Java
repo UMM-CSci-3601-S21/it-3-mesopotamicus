@@ -77,30 +77,7 @@ public class LearnerControllerSpec {
     Document testLearnerID = new Document()
     .append("_id", testID)
     .append("name", "John")
-    .append("assignedContextPacks", Arrays.asList(
-      new Document()
-        .append("_id", testID)
-        .append("name", "baskets")
-        .append("icon", "dog.png")
-        .append("enabled", true)
-        .append("wordlists", Arrays.asList(
-          new Document("name", "dogs")
-            .append("enabled", true)
-            .append("verbs",
-                Arrays.asList(new Document("word", "run").append("forms", Arrays.asList("horsie", "horse"))))
-            .append("nouns",
-                Arrays.asList(new Document("word", "horse").append("forms", Arrays.asList("horsie", "horse"))))
-            .append("adjectives",
-                Arrays.asList(new Document("word", "blue").append("forms", Arrays.asList("horsie", "horse"))))
-            .append("misc",
-                Arrays.asList(
-                new Document("word", "goat").append("forms", Arrays.asList("horsie", "horse")),
-                new Document("word", "train").append("forms", Arrays.asList("trains"))
-                ))))
-                )
-
-
-    );
+    .append("assignedContextPacks", Arrays.asList("dogId", "catID", "horseID"));
 
     learnerDocuments.insertOne(testLearnerID);
 

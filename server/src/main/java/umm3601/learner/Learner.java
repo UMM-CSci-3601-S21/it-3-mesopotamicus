@@ -14,5 +14,5 @@ public class Learner {
   public String _id;
 
   public String name;
-  public ArrayList<ContextPack> assignedContextPacks;
+  public ArrayList<String> assignedContextPacks;
 }

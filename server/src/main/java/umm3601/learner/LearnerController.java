@@ -67,10 +67,10 @@ public class LearnerController {
 
   public void addContextPackToLearner(Context ctx){
 
-    String idLearner = ctx.pathParam("id");
-    ContextPack ctxPack = ctx.bodyValidator(ContextPack.class).get();
+    String idLearner = ctx.pathParam("idlearn");
+    String ctxPackId = ctx.pathParam("idpack");
 
-    learnerCollection.updateById(idLearner, Updates.push("assignedContextPacks", ctxPack));
+    learnerCollection.updateById(idLearner, Updates.push("assignedContextPacks", ctxPackId));
 
     ctx.status(201);
     ctx.json(ImmutableMap.of("id", learnerCollection.findOneById(idLearner)._id));

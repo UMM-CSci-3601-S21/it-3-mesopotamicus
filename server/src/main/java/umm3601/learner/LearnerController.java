@@ -55,9 +55,9 @@ public class LearnerController {
     .into(new ArrayList<>()));
   }
 
-  public void addNewContextPack(Context ctx){
+  public void addNewLearner(Context ctx){
     Learner newLearner = ctx.bodyValidator(Learner.class)
-      .check(pack -> pack.name != null )
+      .check(learner -> learner.name != null )
       .get();
 
       learnerCollection.insertOne(newLearner);

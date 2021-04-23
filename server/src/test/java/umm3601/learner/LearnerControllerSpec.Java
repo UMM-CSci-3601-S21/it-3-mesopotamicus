@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.ImmutableMap;
@@ -41,14 +40,12 @@ import io.javalin.http.util.ContextUtil;
 import io.javalin.plugin.json.JavalinJson;
 import umm3601.contextpack.ContextPackControllerSpec;
 
-
-public class LearnerControllerSpec{
+public class LearnerControllerSpec {
 
   MockHttpServletRequest mockReq = new MockHttpServletRequest();
   MockHttpServletResponse mockRes = new MockHttpServletResponse();
 
   private LearnerController learnerController;
-
 
   private ObjectId testID;
 
@@ -67,7 +64,6 @@ public class LearnerControllerSpec{
     db = mongoClient.getDatabase("test");
   }
 
-
   @BeforeEach
   public void setupEach() throws IOException {
 
@@ -80,7 +76,32 @@ public class LearnerControllerSpec{
     testID = new ObjectId();
     Document testLearnerID = new Document()
     .append("_id", testID)
-    .append("name", "John");
+    .append("name", "John")
+    .append("assignedContextPacks", Arrays.asList(
+      new Document()
+        .append("_id", testID)
+        .append("name", "baskets")
+        .append("icon", "dog.png")
+        .append("enabled", true)
+        .append("wordlists", Arrays.asList(
+          new Document("name", "dogs")
+            .append("enabled", true)
+            .append("verbs",
+                Arrays.asList(new Document("word", "run").append("forms", Arrays.asList("horsie", "horse"))))
+            .append("nouns",
+                Arrays.asList(new Document("word", "horse").append("forms", Arrays.asList("horsie", "horse"))))
+            .append("adjectives",
+                Arrays.asList(new Document("word", "blue").append("forms", Arrays.asList("horsie", "horse"))))
+            .append("misc",
+                Arrays.asList(
+                new Document("word", "goat").append("forms", Arrays.asList("horsie", "horse")),
+                new Document("word", "train").append("forms", Arrays.asList("trains"))
+                ))))
+                )
+
+
+    );
+
     learnerDocuments.insertOne(testLearnerID);
 
   }
@@ -94,7 +115,6 @@ public class LearnerControllerSpec{
   @Test
   public void getAllLearners() throws IOException {
 
-    // Create our fake Javalin context
     Context ctx = ContextUtil.init(mockReq, mockRes, "api/learners");
     learnerController.getLearners(ctx);
 
@@ -104,9 +124,5 @@ public class LearnerControllerSpec{
     assertTrue(JavalinJson.fromJson(result, Learner[].class).length >= 1);
 
   }
-
-
-
-
 
 }

@@ -11,7 +11,9 @@
 }
 
 .search-card {
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mat-radio-button {
@@ -25,3 +27,4 @@
   float: right;
   background-color: skyblue;
 }
+

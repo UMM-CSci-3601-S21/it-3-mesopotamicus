@@ -104,4 +104,30 @@ public class LearnerControllerSpec {
 
   }
 
+  @Test
+  public void addNewLearner(){
+
+    String test = "{"
+    + "\"name\": \"Test\","
+    + "\"assignedContextPacks\":"
+      + "["
+      + "]}"
+    ;
+
+
+      mockReq.setBodyContent(test);
+      mockReq.setMethod("POST");
+
+      Context ctx = ContextUtil.init(mockReq, mockRes, "api/learners/add");
+
+      learnerController.addNewLearner(ctx);
+
+      assertEquals(201, mockRes.getStatus());
+
+      String result = ctx.resultString();
+
+      System.out.println(result);
+
+    }
+
 }

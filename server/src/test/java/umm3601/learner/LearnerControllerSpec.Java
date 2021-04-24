@@ -81,6 +81,8 @@ public class LearnerControllerSpec {
 
     learnerDocuments.insertOne(testLearnerID);
 
+    learnerController = new LearnerController(db);
+
   }
 
   @AfterAll

@@ -57,7 +57,12 @@ public class Server {
     server.get("/api/contextpacks/:id", contextPackController::getContextPack, roles(MyRole.ANYONE));
 
     server.get("/api/learners", learnerController::getLearners, roles(MyRole.ANYONE));
+
     server.get("/api/learners/:id", learnerController::getLearner, roles(MyRole.ANYONE));
+
+    server.post("/api/learners/add", learnerController::addNewLearner, roles(MyRole.ADMIN));
+
+    server.post("/api/learners/:id", learnerController::addContextPackToLearner, roles(MyRole.ADMIN));
 
     server.post("/api/users", userController::checkToken, roles(MyRole.ANYONE));
 

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Learner } from './learner';
 
@@ -61,6 +62,14 @@ export class LearnerService {
     }
 
     return filteredLearners;
+  }
+
+  addContextPackIdToLearner(idlearn: string, idpack: string){
+    return this.httpClient.post<string>(this.learnerUrl + '/' + idlearn, idpack).pipe(map(res => res));
+  }
+
+  addLearner(newLearner: Learner){
+    return this.httpClient.post<{id: string}>(this.learnerUrl + '/' + 'add', newLearner).pipe(map(res => res.id));
   }
 
 

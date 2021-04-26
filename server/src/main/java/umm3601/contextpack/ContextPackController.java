@@ -158,7 +158,9 @@ public class ContextPackController {
   public void addWordList(Context ctx){
 
     String id = ctx.pathParam("id");
-    Wordlist newWordList = ctx.bodyValidator(Wordlist.class).get();
+    Wordlist newWordList = ctx.bodyValidator(Wordlist.class)
+    .check(list -> list.name.length() > 0)
+    .get();
     contextPackCollection.updateById(id, Updates.push("wordlists", newWordList));
 
     ctx.status(201);

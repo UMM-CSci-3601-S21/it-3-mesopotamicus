@@ -8,14 +8,21 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { ActivatedRouteStub } from '../../../testing/activated-route-stub';
 import { MockLearnerService } from '../../../testing/learner.service.mock';
+import { MockContextPackService } from '../../../testing/contextpack.service.mock';
 import { LearnerInfoComponent } from './learner-info.component';
 import { Learner } from '../learner';
 import { LearnerService } from '../learner.service';
+import { ContextPackCardComponent } from '../../contextpacks/contextpack-card.component';
+import { ContextPack, Word, Wordlist} from '../../contextpacks/contextpack';
+import { ContextPackService } from '../../contextpacks/contextpack.service';
+
+
 
 describe('LearnerInfoComponent', () => {
   let component: LearnerInfoComponent;
   let fixture: ComponentFixture<LearnerInfoComponent>;
-  let learnerService: LearnerService
+  let learnerService: LearnerService;
+  let contextPackService = ContextPackService;
   const activatedRoute: ActivatedRouteStub = new ActivatedRouteStub();
 
   beforeEach(waitForAsync(() => {
@@ -27,9 +34,10 @@ describe('LearnerInfoComponent', () => {
         FormsModule,
         ReactiveFormsModule,
       ],
-      declarations: [LearnerInfoComponent],
+      declarations: [LearnerInfoComponent, ContextPackCardComponent],
       providers: [
         { provide: LearnerService, useValue: new MockLearnerService() },
+        { provide: ContextPackService, useValue: new MockContextPackService() },
         { provide: ActivatedRoute, useValue: activatedRoute }
       ]
     })
@@ -50,7 +58,7 @@ describe('LearnerInfoComponent', () => {
     {
       _id: 'test_id',
       name: 'test',
-      assignedContextPacks: ['contextpacks']
+      assignedContextPacks: ['chris_id', 'mary_id']
     };
 
     component.learner = testLearner;
@@ -60,5 +68,10 @@ describe('LearnerInfoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get and filter packs', () => {
+    expect(component.contextPacks.length).toBe(3);
+    expect(component.assignedPacks.length).toBe(2);
   });
 });

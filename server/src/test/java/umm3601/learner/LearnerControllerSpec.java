@@ -130,4 +130,27 @@ public class LearnerControllerSpec {
 
     }
 
+  @Test
+  public void addNewContextPackID(){
+
+    String newID = "\"newID1234\"";
+
+    String IdTest = testID.toHexString();
+
+    mockReq.setBodyContent(newID);
+    mockReq.setMethod("POST");
+
+    System.err.println(IdTest);
+
+    Context ctx = ContextUtil.init(mockReq, mockRes, "api/learners/:id", ImmutableMap.of("id", IdTest));
+
+    learnerController.addContextPackToLearner(ctx);
+
+    assertEquals(201, mockRes.getStatus());
+
+
+
+
+  }
+
 }

@@ -22,6 +22,8 @@
   <div class="learnerContainer" fxLayout="column">
     <app-learner-card [simple]=true *ngFor="let learner of filteredLearners" class="learner-card" [learner]="learner"  fxFlex="1 1"></app-learner-card>
   </div>
-
+  <button mat-fab class="add-learner-fab" matTooltip="Add New Learner" matTooltipPosition="above" routerLink="/add" data-test="addLearnerButton">
+    <mat-icon class="md-24" aria-label="Add Learner">add</mat-icon>
+  </button>
   </div>
 </ng-template>

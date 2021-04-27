@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -6,17 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContextPackService } from 'src/app/contextpacks/contextpack.service';
-import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
 import { MockContextPackService } from 'src/testing/contextpack.service.mock';
 import { MockLearnerService } from 'src/testing/learner.service.mock';
+import { LearnerInfoComponent } from '../learner-info/learner-info.component';
 import { LearnerService } from '../learner.service';
 
-import { LearnerInfoComponent } from './learner-info.component';
+import { AddLearnerComponent } from './add-learner.component';
 
-describe('LearnerInfoComponent', () => {
-  let component: LearnerInfoComponent;
-  let fixture: ComponentFixture<LearnerInfoComponent>;
-  const activatedRoute: ActivatedRouteStub = new ActivatedRouteStub();
+describe('AddLearnerComponent', () => {
+  let component: AddLearnerComponent;
+  let fixture: ComponentFixture<AddLearnerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,7 +32,7 @@ describe('LearnerInfoComponent', () => {
       providers: [
         { provide: LearnerService, useValue: new MockLearnerService() },
         { provide: ContextPackService, useValue: new MockContextPackService() },
-        { provide: ActivatedRoute, useValue: activatedRoute }
+        { provide: ActivatedRoute, useValue: ActivatedRoute }
       ]
 
     })
@@ -40,23 +40,12 @@ describe('LearnerInfoComponent', () => {
   });
 
   beforeEach(() => {
-
-    fixture = TestBed.createComponent(LearnerInfoComponent);
+    fixture = TestBed.createComponent(AddLearnerComponent);
     component = fixture.componentInstance;
-    component.learner = {
-      _id: 'learner',
-      name: 'string',
-      assignedContextPacks: ['chris_id','chris_id'],
-    };
-    activatedRoute.setParamMap({ id: 'testLearner1' });
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-  it('should navigate to a specific Learner\'s info page', () => {
-    activatedRoute.setParamMap({ id: 'testLearner1' });
-    expect(component.id).toEqual('testLearner1');
   });
 });

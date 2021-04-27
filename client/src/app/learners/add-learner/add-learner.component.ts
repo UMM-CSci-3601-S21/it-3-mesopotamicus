@@ -8,20 +8,20 @@ import { LearnerService } from '../learner.service';
 
 @Component({
   selector: 'app-learner-list',
-  templateUrl: './learner-list.component.html',
-  styleUrls: ['./learner-list.component.scss']
+  templateUrl: './add-learner.component.html',
+  styleUrls: ['./add-learner.component.scss']
 })
-export class LearnerListComponent implements OnInit, OnDestroy {
+export class AddLearnerComponent implements OnInit, OnDestroy {
 
   public serverFilteredLearners: Learner[];
   public filteredLearners: Learner[];
   public contextpackName: string;
   public learnerName: string;
   public learnerForm: FormGroup;
+  isAdmin: boolean;
 
   getLearnersSub: Subscription;
 
-  isSignedIn: boolean;
 
   constructor(private learnerService: LearnerService, private fb: FormBuilder,
     private snackBar: MatSnackBar, private router: Router) { }
@@ -32,33 +32,29 @@ export class LearnerListComponent implements OnInit, OnDestroy {
         Validators.required,
       ]))
     });
-    this.getLearnersFromServer();
-    this.isSignedIn = this.learnerService.checkIfLoggedIn(localStorage.getItem('loggedIn'));
+    this.isAdmin = this.learnerService.checkIfAdmin(localStorage.getItem('admin'));
   }
 
-  ngOnDestroy(): void {
-    this.unsubLearner();
-  }
+  submitForm() {
+    const newLearner = {
+      _id: null,
+      name: this.learnerForm.controls.name.value,
+      assignedContextPacks: [],
+    };
 
-  getLearnersFromServer(): void {
-    this.unsubLearner();
-    this.getLearnersSub = this.learnerService.getLearners().subscribe(returnedLearners => {
-      this.serverFilteredLearners = returnedLearners;
-      this.updateLearnerFilter();
+    this.learnerService.addLearner(newLearner).subscribe(newID => {
+      this.snackBar.open('Added ' + newLearner.name, null, {
+        duration: 2000,
+      });
+      this.router.navigate(['/learner/', newID]);
     }, err => {
-      console.log(err);
+      this.snackBar.open('Failed to add a new Learner', 'OK', {
+        duration: 5000,
+      });
     });
   }
 
-  public updateLearnerFilter(): void {
-    this.filteredLearners = this.learnerService.filterLearners(
-      this.serverFilteredLearners, { name: this.learnerName });
-  }
-
-  unsubLearner(): void {
-    if (this.getLearnersSub) {
-      this.getLearnersSub.unsubscribe();
-    }
+  ngOnDestroy(): void {
   }
 
 }

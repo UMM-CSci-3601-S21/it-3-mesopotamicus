@@ -10,19 +10,17 @@ import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
 import { MockContextPackService } from 'src/testing/contextpack.service.mock';
 import { MockLearnerService } from 'src/testing/learner.service.mock';
 import { LearnerService } from '../learner.service';
-
 import { LearnerInfoComponent } from './learner-info.component';
 import { Learner } from '../learner';
-import { LearnerService } from '../learner.service';
 import { ContextPackCardComponent } from '../../contextpacks/contextpack-card.component';
 import { ContextPack, Word, Wordlist} from '../../contextpacks/contextpack';
-import { ContextPackService } from '../../contextpacks/contextpack.service';
 
 
 
 describe('LearnerInfoComponent', () => {
   let component: LearnerInfoComponent;
   let fixture: ComponentFixture<LearnerInfoComponent>;
+  let learnerService: LearnerService;
   const activatedRoute: ActivatedRouteStub = new ActivatedRouteStub();
 
   beforeEach(async () => {
@@ -47,16 +45,16 @@ describe('LearnerInfoComponent', () => {
         expect(error).toBeNull();
       });
       learnerService = TestBed.inject(LearnerService);
-  }));
+  });
 
   beforeEach(() => {
 
     fixture = TestBed.createComponent(LearnerInfoComponent);
     component = fixture.componentInstance;
     component.learner = {
-      _id: 'learner',
+      _id: 'testLearner1',
       name: 'string',
-      assignedContextPacks: ['chris_id','chris_id'],
+      assignedContextPacks: ['chris_id','mary_id']
     };
     activatedRoute.setParamMap({ id: 'testLearner1' });
     fixture.detectChanges();
@@ -73,6 +71,7 @@ describe('LearnerInfoComponent', () => {
 
   it('should get and filter packs', () => {
     expect(component.contextPacks.length).toBe(3);
+    expect(component.learner.assignedContextPacks[0]).toEqual(component.contextPacks[0]._id);
     expect(component.assignedPacks.length).toBe(2);
   });
 });

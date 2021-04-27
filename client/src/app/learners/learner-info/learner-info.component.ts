@@ -23,6 +23,8 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
   id: string;
   name: string;
   getLearnerSub: Subscription;
+  getContextPackSub: Subscription;
+  contextPacks: ContextPack[];
   assignedPacks: ContextPack[] =[];
 
   constructor( public snackBar: MatSnackBar, private route: ActivatedRoute, private contextPackService: ContextPackService,
@@ -35,9 +37,16 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
       if (this.getLearnerSub) {
         this.getLearnerSub.unsubscribe();
       }
+      if (this.getContextPackSub) {
+        this.getContextPackSub.unsubscribe();
+      }
       this.getLearnerSub = this.learnerService.getLearnerById(this.id)
       .subscribe(learner =>{this.learner = learner;
       });
+      if (this.learner) {
+        this.getContextPackSub = this.contextPackService.getContextPacks().subscribe(
+          contextpacks => { this.contextPacks = contextpacks;
+          });}
     });
       this.getContextPackSub = this.contextPackService.getContextPacks().subscribe(contextpacks => this.contextPacks = contextpacks);
       this.filterPacks();
@@ -47,7 +56,9 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
     if (this.getLearnerSub) {
       this.getLearnerSub.unsubscribe();
     }
-
+    if (this.getContextPackSub) {
+      this.getContextPackSub.unsubscribe();
+    }
   }
 
   filterPacks(): void {

@@ -15,12 +15,12 @@ describe('LearnerService', () => {
       {
         _id: 'test1',
         name: 'test',
-        assignedContextPacks: ['oneId','twoId','threeId'],
+        assignedContextPacks: ['chris_id','mary_id'],
       },
       {
         _id: 'test2',
         name: 'testtwo',
-        assignedContextPacks: ['oneId','twoId','threeId'],
+        assignedContextPacks: ['bob_id'],
       }
     ];
 

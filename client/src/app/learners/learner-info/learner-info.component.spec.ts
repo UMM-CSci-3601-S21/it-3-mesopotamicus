@@ -1,14 +1,16 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
-import { ActivatedRouteStub } from '../../../testing/activated-route-stub';
-import { MockLearnerService } from '../../../testing/learner.service.mock';
-import { MockContextPackService } from '../../../testing/contextpack.service.mock';
+import { ContextPackService } from 'src/app/contextpacks/contextpack.service';
+import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
+import { MockContextPackService } from 'src/testing/contextpack.service.mock';
+import { MockLearnerService } from 'src/testing/learner.service.mock';
+import { LearnerService } from '../learner.service';
+
 import { LearnerInfoComponent } from './learner-info.component';
 import { Learner } from '../learner';
 import { LearnerService } from '../learner.service';
@@ -21,25 +23,25 @@ import { ContextPackService } from '../../contextpacks/contextpack.service';
 describe('LearnerInfoComponent', () => {
   let component: LearnerInfoComponent;
   let fixture: ComponentFixture<LearnerInfoComponent>;
-  let learnerService: LearnerService;
-  let contextPackService = ContextPackService;
   const activatedRoute: ActivatedRouteStub = new ActivatedRouteStub();
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         MatCardModule,
         MatSnackBarModule,
         FormsModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule
       ],
-      declarations: [LearnerInfoComponent, ContextPackCardComponent],
+      declarations: [ LearnerInfoComponent ],
       providers: [
         { provide: LearnerService, useValue: new MockLearnerService() },
         { provide: ContextPackService, useValue: new MockContextPackService() },
         { provide: ActivatedRoute, useValue: activatedRoute }
       ]
+
     })
       .compileComponents().catch(error => {
         expect(error).toBeNull();
@@ -48,26 +50,25 @@ describe('LearnerInfoComponent', () => {
   }));
 
   beforeEach(() => {
+
     fixture = TestBed.createComponent(LearnerInfoComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  beforeEach(() => {
-    const testLearner: Learner =
-    {
-      _id: 'test_id',
-      name: 'test',
-      assignedContextPacks: ['chris_id', 'mary_id']
+    component.learner = {
+      _id: 'learner',
+      name: 'string',
+      assignedContextPacks: ['chris_id','chris_id'],
     };
-
-    component.learner = testLearner;
-
+    activatedRoute.setParamMap({ id: 'testLearner1' });
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+   it('should create', () => {
+     expect(component).toBeTruthy();
+   });
+
+   it('should navigate to a specific Learner\'s info page', () => {
+    activatedRoute.setParamMap({ id: 'testLearner1' });
+    expect(component.id).toEqual('testLearner1');
   });
 
   it('should get and filter packs', () => {

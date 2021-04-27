@@ -42,6 +42,7 @@ import { EditContextpackComponent } from './contextpacks/edit-contextpack.compon
 import { LearnerCardComponent } from './learners/learner-card/learner-card.component';
 import { LearnerInfoComponent } from './learners/learner-info/learner-info.component';
 import { LearnerListComponent } from './learners/learner-list/learner-list.component';
+import { AddLearnerComponent } from './learners/add-learner/add-learner.component';
 
 const MATERIAL_MODULES: any[] = [
   MatListModule,
@@ -79,6 +80,7 @@ const MATERIAL_MODULES: any[] = [
     LearnerCardComponent,
     LearnerInfoComponent,
     LearnerListComponent,
+    AddLearnerComponent,
   ],
   imports: [
     BrowserModule,

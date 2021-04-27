@@ -1,9 +1,11 @@
-<div fxLayout="row">
-  <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
 
-
+<button mat-fab class="back-button" matTooltip="Back to Learners" matTooltipPosition="right" routerLink="/learner" data-test="backButton">
+  <mat-icon class="md-24" aria-label="Back Button">keyboard_backspace</mat-icon>
+</button>
+<mat-card>
+<h1 class="learner-name">{{this.learner.name}}</h1>
+</mat-card>
     <mat-card-header>
-      <mat-card-title class="learner-list-title">{{this.learner.name}}</mat-card-title>
       <ng-template #learnerError>
         <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10" class="learner-error">
           <mat-error>

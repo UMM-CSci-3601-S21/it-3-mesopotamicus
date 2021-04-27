@@ -1,0 +1,19 @@
+<div fxLayout="row">
+  <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
+    <form [formGroup]="learnerForm">
+      <mat-card fxFlex class="add">
+        <mat-card-title><h2>Add A New Learner:</h2></mat-card-title>
+        <mat-card-content class="learner">
+          <form [formGroup]="learnerForm" class="learnerForm">
+            <mat-form-field class="learnerName-field">
+              <mat-label>Enter Name</mat-label>
+              <input autocomplete="off" formControlName="name" required matInput data-test="learnerNameInput" placeholder="Learner Name">
+              <mat-error class="error-message" data-test="nameError">Please enter a valid name</mat-error>
+           </mat-form-field>
+          </form>
+          <button mat-icon-button data-test="addLearnerButton" class="addLearnerButton" matTooltip="Add Learner" matTooltipPosition="above" (click)="submitForm()"><mat-icon>add</mat-icon></button>
+        </mat-card-content>
+      </mat-card>
+  </form>
+  </div>
+</div>

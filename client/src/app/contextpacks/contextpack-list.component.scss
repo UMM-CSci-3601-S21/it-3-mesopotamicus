@@ -4,14 +4,29 @@
   align-items: center;
 }
 
-
-.contextpack-card {
-  padding: 5px;
+.div {
   align-items: center;
 }
 
-.search-card {
+
+.contextpack-card {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contextpack-list-title {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field {
+  text-align: center;
+}
+
+.mat-card-content{
+  text-align: center;
   align-items: center;
   justify-content: center;
 }

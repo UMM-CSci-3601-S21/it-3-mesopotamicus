@@ -4,6 +4,10 @@
 <mat-card>
 <h1 class="learner-name">{{this.learner.name}}</h1>
 </mat-card>
+<mat-select data-test="nounDest">
+  <mat-option *ngFor="let ctxPack of this.allCxtPacks" value={{ctxPack._id}}>
+    {{ctxPack.name}}</mat-option>
+</mat-select>
 <mat-card>
   Assigned Packs:
   <h1 *ngFor="let pack of this.assignedPacksObj" class="assigned-pack-name">

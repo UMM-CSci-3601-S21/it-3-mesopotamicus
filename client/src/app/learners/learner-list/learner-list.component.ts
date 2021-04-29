@@ -33,7 +33,7 @@ export class LearnerListComponent implements OnInit, OnDestroy {
       ]))
     });
     this.getLearnersFromServer();
-    this.isSignedIn = this.learnerService.checkIfLoggedIn(localStorage.getItem('loggedIn'));
+    this.isSignedIn = localStorage.getItem('loggedIn') === 'true';
   }
 
   ngOnDestroy(): void {

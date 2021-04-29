@@ -3,7 +3,7 @@
     "$oid": "6079d0ef60c5adfd3bbccccc"
   },
   "name": "Josh",
-  "assignedContextPacks": []
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
 },
 
 {
@@ -11,7 +11,7 @@
     "$oid": "588935f51c55b55c75abbbbb"
   },
   "name": "Jeff",
-  "assignedContextPacks": []
+  "assignedContextPacks": ["588935f55b432bb2ff322165", "588935f55b432bb2ff322169"]
 },
 
 {
@@ -19,7 +19,7 @@
     "$oid": "4079d0ef60c5adfd3bbccccc"
   },
   "name": "Elmurad",
-  "assignedContextPacks": []
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
 },
 
 {
@@ -27,7 +27,7 @@
     "$oid": "888935f51c55b55c75abbbbb"
   },
   "name": "Lloyd",
-  "assignedContextPacks": []
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
 },
 
 {
@@ -35,6 +35,6 @@
     "$oid": "788935f51c55b55c75abbbbb"
   },
   "name": "Blake",
-  "assignedContextPacks": []
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
 }
 ]

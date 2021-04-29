@@ -11,10 +11,6 @@ import { MockContextPackService } from 'src/testing/contextpack.service.mock';
 import { MockLearnerService } from 'src/testing/learner.service.mock';
 import { LearnerService } from '../learner.service';
 import { LearnerInfoComponent } from './learner-info.component';
-import { Learner } from '../learner';
-import { ContextPackCardComponent } from '../../contextpacks/contextpack-card.component';
-import { ContextPack, Word, Wordlist} from '../../contextpacks/contextpack';
-
 
 
 describe('LearnerInfoComponent', () => {
@@ -69,9 +65,14 @@ describe('LearnerInfoComponent', () => {
     expect(component.id).toEqual('testLearner1');
   });
 
-  it('should get and filter packs', () => {
-    expect(component.contextPacks.length).toBe(3);
-    expect(component.learner.assignedContextPacks[0]).toEqual(component.contextPacks[0]._id);
-    expect(component.assignedPacks.length).toBe(2);
+  it('should get assigned context packs', () => {
+    component.getAssignedContextPacks();
+    component.learner = {
+      _id: 'learner',
+      name: 'string',
+      assignedContextPacks: ['chris_id']
+    };
+    expect(component.assignedPacks.length).toBeGreaterThan(0);
+    expect(component.assignedPacks[0]._id).toEqual('chris_id');
   });
 });

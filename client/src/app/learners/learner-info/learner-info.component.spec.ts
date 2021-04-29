@@ -10,12 +10,13 @@ import { ActivatedRouteStub } from 'src/testing/activated-route-stub';
 import { MockContextPackService } from 'src/testing/contextpack.service.mock';
 import { MockLearnerService } from 'src/testing/learner.service.mock';
 import { LearnerService } from '../learner.service';
-
 import { LearnerInfoComponent } from './learner-info.component';
+
 
 describe('LearnerInfoComponent', () => {
   let component: LearnerInfoComponent;
   let fixture: ComponentFixture<LearnerInfoComponent>;
+  let learnerService: LearnerService;
   const activatedRoute: ActivatedRouteStub = new ActivatedRouteStub();
 
   beforeEach(async () => {
@@ -36,7 +37,10 @@ describe('LearnerInfoComponent', () => {
       ]
 
     })
-    .compileComponents();
+      .compileComponents().catch(error => {
+        expect(error).toBeNull();
+      });
+      learnerService = TestBed.inject(LearnerService);
   });
 
   beforeEach(() => {
@@ -44,9 +48,9 @@ describe('LearnerInfoComponent', () => {
     fixture = TestBed.createComponent(LearnerInfoComponent);
     component = fixture.componentInstance;
     component.learner = {
-      _id: 'learner',
+      _id: 'testLearner1',
       name: 'string',
-      assignedContextPacks: ['chris_id','chris_id'],
+      assignedContextPacks: ['chris_id','mary_id']
     };
     activatedRoute.setParamMap({ id: 'testLearner1' });
     fixture.detectChanges();
@@ -59,5 +63,16 @@ describe('LearnerInfoComponent', () => {
    it('should navigate to a specific Learner\'s info page', () => {
     activatedRoute.setParamMap({ id: 'testLearner1' });
     expect(component.id).toEqual('testLearner1');
+  });
+
+  it('should get assigned context packs', () => {
+    component.getAssignedContextPacks();
+    component.learner = {
+      _id: 'learner',
+      name: 'string',
+      assignedContextPacks: ['chris_id']
+    };
+    expect(component.assignedPacks.length).toBeGreaterThan(0);
+    expect(component.assignedPacks[0]._id).toEqual('chris_id');
   });
 });

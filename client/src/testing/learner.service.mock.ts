@@ -10,12 +10,12 @@ export class MockLearnerService extends LearnerService {
     {
       _id: 'testLearner1',
       name: 'one',
-      assignedContextPacks: ['oneId','twoId','threeId'],
+      assignedContextPacks: ['chris_id','mary_id'],
     },
     {
       _id: 'testLearner2',
       name: 'two',
-      assignedContextPacks: ['oneId','twoId','threeId'],
+      assignedContextPacks: ['bob_id'],
     }
   ];
 

@@ -4,3 +4,18 @@
 <mat-card>
 <h1 class="learner-name">{{this.learner.name}}</h1>
 </mat-card>
+<mat-card>
+  Assigned Packs:
+  <h1 *ngFor="let pack of this.assignedPacksObj" class="assigned-pack-name">
+    {{pack.contextpack.name + ':'}}
+  <mat-divider></mat-divider>
+  </h1>
+</mat-card>
+<div fxLayout="row">
+      <div fxLayout="row wrap" fxLayoutGap="10px" class="contextpack-cards-container">
+        <app-contextpack-card simple="true" *ngFor="let contextpack of assignedPacks" class="contextpack-card" [contextpack]="contextpack"  fxFlex="1 1 280px"></app-contextpack-card>
+      </div>
+
+  </div>
+
+

@@ -19,6 +19,7 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
   learner: Learner;
   id: string;
   ctxPackID: string;
+  availableCtxPacks: ContextPack[];
   allCxtPacks: ContextPack[];
   getLearnerSub: Subscription;
   assignedPacks: ContextPack[] =[];
@@ -44,6 +45,7 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
         this.getAssignedContextPacks();
       });
     });
+    this.filterPacks();
   }
 
   ngOnDestroy(): void {
@@ -62,6 +64,15 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
       }
       );
     }
+  }
+
+  filterPacks(): void {
+    this.allCxtPacks.forEach(contextPack => {
+      this.learner.assignedContextPacks.forEach(packID => {
+        if(contextPack._id != packID) {
+          this.availableCtxPacks.push(contextPack);
+      }});
+    });
   }
 
   submitContextPackID(){

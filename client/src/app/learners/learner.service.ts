@@ -10,6 +10,7 @@ import { Learner } from './learner';
 })
 export class LearnerService {
   readonly learnerUrl: string = environment.apiUrl + 'learners';
+  readonly learnerUrl2: string = environment.apiUrl + 'learner';
   readonly idTokenUrl: string = environment.apiUrl + 'users';
 
   constructor(private httpClient: HttpClient) { }
@@ -65,12 +66,13 @@ export class LearnerService {
   }
 
   addContextPackIdToLearner(idpack: string, id: string){
-    return this.httpClient.post<string>(this.learnerUrl + '/' + id, idpack).pipe(map(res => res));
+    console.log(idpack);
+    console.log(id);
+    return this.httpClient.post<string>(this.learnerUrl2 + '/' + id, idpack).pipe(map(res => res));
   }
 
   addLearner(newLearner: Learner){
     return this.httpClient.post<{id: string}>(this.learnerUrl + '/' + 'add', newLearner).pipe(map(res => res.id));
   }
-
 
 }

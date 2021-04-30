@@ -71,7 +71,7 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
     console.log(this.id);
     console.log(this.ctxID);
     this.learnerService.addContextPackIdToLearner(this.ctxID, this.id).subscribe();
-
+    window.location.reload();
   }
 }
 

@@ -24,6 +24,7 @@ export class LearnerCardComponent implements OnInit {
   }
 
   getAssignedContextPacks(){
+    this.assignedPacks = [];
     this.learner.assignedContextPacks.forEach(packID => {
       if(packID != null) {
       this.contextPackService.getContextPackById(packID).subscribe(pack => {

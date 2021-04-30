@@ -24,11 +24,11 @@ export class LearnerCardComponent implements OnInit {
   }
 
   getAssignedContextPacks(){
-    this.assignedPacks = [];
-    for(let i=0; i<this.learner.assignedContextPacks.length; i++){
-     this.contextPackService.getContextPackById(this.learner.assignedContextPacks[i])
-      .subscribe(contextpack => this.assignedPacks.push(contextpack));
-    }
+    this.learner.assignedContextPacks.forEach(packID => {
+      if(packID != null) {
+      this.contextPackService.getContextPackById(packID).subscribe(pack => {
+        this.assignedPacks.push(pack);
+      });}});
   }
 
 }

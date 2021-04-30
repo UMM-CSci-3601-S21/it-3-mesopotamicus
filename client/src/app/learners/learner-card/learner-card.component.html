@@ -1,10 +1,9 @@
-<mat-card class="learner-card" fxLayoutGap="0px" fxFlex.gt-sm="100" fxFlexOffset.gt-sm="0">
+<mat-card class="learner-card">
   <mat-card-title class="simpleView">
-    <span class="learner-name">{{this.learner.name}}</span>
-    <mat-card-actions>
-        <button class="viewInfo" mat-icon-button matTooltip="View Details" color="primary" data-test="viewInfo" [routerLink]="['/learner/' + this.learner._id]">
-        View Learner</button>
-    </mat-card-actions>
+    <span class="learner-name">{{this.learner.name}}
+
+    <button class="viewInfo" mat-icon-button matTooltip="View Details" color="primary" data-test="viewInfo" [routerLink]="['/learner/' + this.learner._id]">
+      View Learner</button></span>
   </mat-card-title>
 <mat-card-content *ngIf="!this.simple">
   <mat-list *ngFor="let assignedPacks of this.assignedPacks">

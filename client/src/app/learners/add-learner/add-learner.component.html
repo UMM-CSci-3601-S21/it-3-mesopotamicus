@@ -1,4 +1,7 @@
 <div fxLayout="row">
+  <button mat-mini-fab class="back-button" matTooltip="Back to Learners" matTooltipPosition="right" routerLink="/learner" data-test="backButton">
+    <mat-icon class="md-24" aria-label="Back Button">keyboard_backspace</mat-icon>
+  </button>
   <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
     <form [formGroup]="learnerForm">
       <mat-card fxFlex class="add">

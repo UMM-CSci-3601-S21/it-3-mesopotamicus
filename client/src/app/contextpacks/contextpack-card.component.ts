@@ -56,12 +56,8 @@ export class ContextPackCardComponent implements OnInit {
   }
 
   displayEnabled(status: boolean){
-    if(status === false){
-      return 'Disabled';
-    }
-    if(status === true){
-      return 'Enabled';
-    }
+    if(status){ return 'Enabled';}
+    else {return 'Disabled';}
   }
 
   submitWordlist(){

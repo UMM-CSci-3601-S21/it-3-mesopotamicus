@@ -64,7 +64,7 @@ export class LearnerService {
     return filteredLearners;
   }
 
-  addContextPackIdToLearner(id: string, idpack: string){
+  addContextPackIdToLearner(idpack: string, id: string){
     return this.httpClient.post<string>(this.learnerUrl + '/' + id, idpack).pipe(map(res => res));
   }
 

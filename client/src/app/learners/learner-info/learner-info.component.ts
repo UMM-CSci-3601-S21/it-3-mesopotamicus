@@ -17,8 +17,8 @@ import { LearnerService } from '../learner.service';
 export class LearnerInfoComponent implements OnInit, OnDestroy {
 
   learner: Learner;
+  ctxID: string;
   id: string;
-  ctxPackID: string;
   availableCtxPacks: ContextPack[];
   allCxtPacks: ContextPack[];
   getLearnerSub: Subscription;
@@ -77,7 +77,9 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
 
   submitContextPackID(){
 
-    this.learnerService.addContextPackIdToLearner(this.learner._id, this.ctxPackID).subscribe()
+    console.log(this.id);
+    console.log(this.ctxID);
+    this.learnerService.addContextPackIdToLearner(this.ctxID, this.id).subscribe();
 
   }
 

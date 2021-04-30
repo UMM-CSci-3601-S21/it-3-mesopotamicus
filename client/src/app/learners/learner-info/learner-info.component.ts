@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -68,14 +67,12 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
 
 
   submitContextPackID(){
-    console.log(this.ctxID);
-    console.log(this.id);
 
+    console.log(this.id);
+    console.log(this.ctxID);
     this.learnerService.addContextPackIdToLearner(this.ctxID, this.id).subscribe();
 
   }
-
-
 }
 
 export interface AssignedPack {

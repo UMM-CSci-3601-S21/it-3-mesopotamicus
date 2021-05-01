@@ -6,6 +6,7 @@ import { ContextPack } from 'src/app/contextpacks/contextpack';
 import { ContextPackService } from 'src/app/contextpacks/contextpack.service';
 import { Learner } from '../learner';
 import { LearnerService } from '../learner.service';
+import { FormControlDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-learner-info',
@@ -19,6 +20,7 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
   learner: Learner;
   ctxID: string;
   id: string;
+  name: string;
   availableCtxPacks: ContextPack[];
   allCxtPacks: ContextPack[];
   getLearnerSub: Subscription;

@@ -5,18 +5,16 @@
 <h1 class="learner-name" *ngIf="learner">{{this.learner.name}}</h1>
 </mat-card>
 
-<mat-select [(ngModel)]="ctxID">
-  <mat-option *ngFor="let ctxPack of this.allCxtPacks" value={{ctxPack._id}} >{{ctxPack.name}}</mat-option>
+<mat-form-field> Assign New Context Pack
+<mat-select [(ngModel)]="ctxID"[(ngModel)]="name" ngDefaultControl>
+  <mat-option *ngFor="let ctxPack of this.allCxtPacks" value={{ctxPack._id}}>{{ctxPack.name}}</mat-option>
 </mat-select>
+</mat-form-field>
+<button (click)="submitContextPackID()">Assign Pack</button>
 
-<button (click)="submitContextPackID()">Add Pack</button>
-<mat-card>
-  Assigned Packs:
-  <h1 *ngFor="let pack of this.assignedPacksObj" class="assigned-pack-name">
-    {{pack.contextpack.name + ':'}}
-  <mat-divider></mat-divider>
-  </h1>
-</mat-card>
+
+ <h1>Assigned Packs:</h1>
+
 <div fxLayout="row">
       <div fxLayout="row wrap" fxLayoutGap="10px" class="contextpack-cards-container">
         <app-contextpack-card simple="true" *ngFor="let contextpack of assignedPacks" class="contextpack-card" [contextpack]="contextpack"  fxFlex="1 1 280px"></app-contextpack-card>

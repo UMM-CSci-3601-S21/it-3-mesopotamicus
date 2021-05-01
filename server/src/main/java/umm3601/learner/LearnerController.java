@@ -68,8 +68,12 @@ public class LearnerController {
   public void addContextPackToLearner(Context ctx){
 
 
+
     String idLearner = ctx.pathParam("id");
     String ctxPackId = ctx.bodyValidator(String.class).get();
+
+    System.out.println(idLearner);
+    System.out.println(ctxPackId);
 
     learnerCollection.updateById(idLearner, Updates.push("assignedContextPacks", ctxPackId));
 

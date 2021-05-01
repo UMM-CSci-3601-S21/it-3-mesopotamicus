@@ -10,7 +10,7 @@
   <mat-option *ngFor="let ctxPack of this.allCxtPacks" value={{ctxPack._id}}>{{ctxPack.name}}</mat-option>
 </mat-select>
 </mat-form-field>
-<button (click)="submitContextPackID()">Assign Pack</button>
+<button mat-raised-button (click)="submitContextPackID()">Assign Pack</button>
 
 
  <h1>Assigned Packs:</h1>

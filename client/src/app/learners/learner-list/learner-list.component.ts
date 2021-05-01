@@ -21,7 +21,7 @@ export class LearnerListComponent implements OnInit, OnDestroy {
 
   getLearnersSub: Subscription;
 
-  isSignedIn: boolean;
+  isAdmin: boolean;
 
   constructor(private learnerService: LearnerService, private fb: FormBuilder,
     private snackBar: MatSnackBar, private router: Router) { }
@@ -33,7 +33,7 @@ export class LearnerListComponent implements OnInit, OnDestroy {
       ]))
     });
     this.getLearnersFromServer();
-    this.isSignedIn = this.learnerService.checkIfLoggedIn(localStorage.getItem('loggedIn'));
+    this.isAdmin = this.learnerService.checkIfAdmin(localStorage.getItem('admin'));
   }
 
   ngOnDestroy(): void {

@@ -10,7 +10,14 @@
   <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
 
     <mat-card class="header">
-      <mat-card-title>Learners:</mat-card-title>
+      <mat-card-title class="learner-title">Learners</mat-card-title>
+      <div class="input"fxLayout="row wrap" fxLayoutGap="10px">
+        <mat-form-field class="input-field">
+          <mat-label>Name</mat-label>
+          <input matInput data-test="learnerNameInput" placeholder="Filter by name"
+          [(ngModel)]="learnerName" (input)="updateLearnerFilter()">
+        </mat-form-field>
+      </div>
     </mat-card>
   <div class="learnerContainer" fxLayout="column">
     <app-learner-card [simple]=true *ngFor="let learner of filteredLearners" class="learner-card" [learner]="learner"  fxFlex="1 1"></app-learner-card>

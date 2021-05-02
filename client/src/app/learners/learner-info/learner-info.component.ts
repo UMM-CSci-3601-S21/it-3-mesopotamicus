@@ -6,7 +6,6 @@ import { ContextPack } from 'src/app/contextpacks/contextpack';
 import { ContextPackService } from 'src/app/contextpacks/contextpack.service';
 import { Learner } from '../learner';
 import { LearnerService } from '../learner.service';
-import { FormControlDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-learner-info',

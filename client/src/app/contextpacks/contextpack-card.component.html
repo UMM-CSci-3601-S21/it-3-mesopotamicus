@@ -8,7 +8,7 @@
       <div class="disabled" *ngIf="!this.contextpack.enabled">
         <mat-icon class="red-x" matTooltip="Disabled">highlight_off</mat-icon>
       </div>
-      <mat-card-subtitle class="contextpack-card-icon">{{this.contextpack.icon}}</mat-card-subtitle>
+      <mat-card-subtitle  *ngIf="!this.simple" class="contextpack-card-icon">{{this.contextpack.icon}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content *ngIf="!this.simple">
@@ -104,6 +104,7 @@
             </div>
           </span>
           <br>
+          <hr style="height:2px;border-width:0;color:gray;background-color:gray">
         </div>
       </div>
 
@@ -202,7 +203,7 @@
       <div class="contextpack-disable-button" *ngIf="this.contextpack.enabled && this.removable"><button
           (click)="save('enabled','false')">Disable</button></div>
       <mat-card-subtitle>
-        <app-edit-contextpack class="contextpack-card-icon" [value]="this.contextpack.icon"
+        <app-edit-contextpack  *ngIf="!this.simple" class="contextpack-card-icon" [value]="this.contextpack.icon"
           (valueChangeEvents)="save('icon',$event)"></app-edit-contextpack>
       </mat-card-subtitle>
     </mat-card-header>
@@ -514,6 +515,7 @@
             </div>
           </span>
           <br>
+          <hr style="height:2px;border-width:0;color:gray;background-color:gray">
         </div>
       </div>
 

@@ -14,7 +14,21 @@
 .add-learner-fab {
   position: relative;
   float: left;
-  margin-left: -110px;
-  margin-top: -710px;
   background-color: skyblue;
+}
+
+.learner-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field {
+  align-items: center;
+}
+
+.input{
+  align-items: center;
+  display:flex;
+  justify-content: center;
 }

@@ -56,14 +56,11 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
   }
 
   getAssignedContextPacks(){
-    let i=0;
-    for(i; i<this.learner.assignedContextPacks.length; i++){
-      this.contextPackService.getContextPackById(this.learner.assignedContextPacks[i])
-      .subscribe(contextpack => {
-      this.assignedPacks.push(contextpack);
-      }
-      );
-    }
+    this.learner.assignedContextPacks.forEach(packID => {
+      if(packID != null) {
+      this.contextPackService.getContextPackById(packID).subscribe(pack => {
+        this.assignedPacks.push(pack);
+      });}});
   }
 
 

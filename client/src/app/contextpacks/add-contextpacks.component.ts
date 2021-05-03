@@ -74,7 +74,7 @@ export class AddContextpacksComponent implements OnInit {
       wordlists: this.fb.array([])
     });
     this.contextPackForm.valueChanges.subscribe(data => this.validateForm());
-    this.isSignedIn = this.contextPackService.checkIfLoggedIn(localStorage.getItem('loggedIn'));
+    this.isSignedIn = localStorage.getItem('loggedIn') === 'true';
 
   }
 
@@ -127,13 +127,10 @@ export class AddContextpacksComponent implements OnInit {
 
     const formAdd = (((this.contextPackForm.controls.wordlists as FormArray).at(ix).get(`${pos}`) as FormArray).at(iy)
     .get('forms') as FormArray).at(0).value.toString();
-    console.log('didnt go through');
       control.setValue(formAdd);
-      console.log(ix,iy);
   }
 
   toggleEnabled(){
-    console.log('button is being checked');
     this.contextPackForm.controls.enabled.setValue(!this.contextPackForm.controls.enabled);
   }
 

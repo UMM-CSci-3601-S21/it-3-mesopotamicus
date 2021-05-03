@@ -13,26 +13,10 @@ export class ContextPackService {
   }
 
   checkIfLoggedIn(log: string){
-    let isSignedIn: boolean;
-    if (log === 'true'){
-      isSignedIn = true;
-    }
-    else{
-      isSignedIn = false;
-    }
-    return isSignedIn;
-
+    return log === 'true';
   }
   checkIfAdmin(log: string){
-    let isAdmin: boolean;
-    if (log === 'true'){
-      isAdmin = true;
-    }
-    else{
-      isAdmin = false;
-    }
-    return isAdmin;
-
+    return log === 'true';
   }
   getContextPacks(): Observable<ContextPack[]> {
     const httpParams: HttpParams = new HttpParams();

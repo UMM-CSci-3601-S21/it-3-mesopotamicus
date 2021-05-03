@@ -32,7 +32,7 @@ export class AddLearnerComponent implements OnInit, OnDestroy {
         Validators.required,
       ]))
     });
-    this.isAdmin = this.learnerService.checkIfAdmin(localStorage.getItem('admin'));
+    this.isAdmin = localStorage.getItem('admin') === 'true';
   }
 
   submitForm() {

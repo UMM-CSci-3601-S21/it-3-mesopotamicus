@@ -45,11 +45,19 @@ describe('LearnerCardComponent', () => {
     };
     fixture.detectChanges();
   });
-  beforeEach(() => {
-    fixture.detectChanges();
-  });
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get assigned context packs', () => {
+    component.learner = {
+      _id: 'learner',
+      name: 'string',
+      assignedContextPacks: ['chris_id']
+    };
+    component.getAssignedContextPacks();
+    expect(component.assignedPacks.length).toEqual(1);
+    expect(component.assignedPacks[0]._id).toEqual('chris_id');
   });
 });

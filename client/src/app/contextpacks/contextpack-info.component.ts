@@ -107,17 +107,17 @@ export class ContextPackInfoComponent implements OnInit, OnDestroy {
   }
 
   localEdit(list: string, obj: any){
-    let i;
-    for(i=0;i<this.contextpack.wordlists.length; i++){
-      if(this.contextpack.wordlists[i].name === list){
-        if(obj.name){
-          this.contextpack.wordlists[i].name = obj.name;
+    this.contextpack.wordlists.forEach(wordlist => {
+      if(wordlist != null) {
+        if(wordlist.name === list) {
+          if(obj.name) {
+            wordlist.name = obj.name;
+          }
+          if(obj.enabled) {
+            wordlist.enabled = obj.enabled;
+          }
         }
-        if(obj.enabled){
-          this.contextpack.wordlists[i].enabled = obj.enabled;
-        }
-      }
-    }
+    }});
     this.ngOnInit();
   }
 

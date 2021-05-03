@@ -65,6 +65,15 @@ describe('LearnerInfoComponent', () => {
     expect(component.id).toEqual('testLearner1');
   });
 
+  it('should not allow duplicate packs', () => {
+    const unchangedPacks = component.learner.assignedContextPacks;
+    component.ctxID = 'chris_id';
+    component.submitContextPackID();
+    component.submitContextPackID();
+    component.submitContextPackID();
+    expect(component.learner.assignedContextPacks).toEqual(unchangedPacks);
+  });
+
   it('should get assigned context packs', () => {
     component.getAssignedContextPacks();
     component.learner = {

@@ -68,11 +68,18 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
 
 
   submitContextPackID(){
-
-    console.log(this.id);
-    console.log(this.ctxID);
+    let alreadyAssigned = false;
+    this.assignedPacks.forEach(pack => {
+      if(pack != null) {
+        if (pack._id === this.ctxID) {
+        alreadyAssigned = true;
+        }
+      }
+    });
+    if(!alreadyAssigned) {
     this.learnerService.addContextPackIdToLearner(this.ctxID, this.id).subscribe();
     window.location.reload();
+    }
   }
 }
 

@@ -17,7 +17,11 @@ import { LearnerService } from '../learner.service';
 export class LearnerInfoComponent implements OnInit, OnDestroy {
 
   learner: Learner;
+  ctxID: string;
   id: string;
+  name: string;
+  availableCtxPacks: ContextPack[];
+  allCxtPacks: ContextPack[];
   getLearnerSub: Subscription;
   assignedPacks: ContextPack[] =[];
   assignedPacksObj: AssignedPack[]=[];
@@ -29,6 +33,11 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.paramMap.subscribe((pmap) => {
       this.id = pmap.get('id');
+      this.contextPackService.getContextPacks().subscribe(returnedContextpacks => {
+        this.allCxtPacks = returnedContextpacks;
+      }, err => {
+        console.log(err);
+      });
       if (this.getLearnerSub) {
         this.getLearnerSub.unsubscribe();
       }
@@ -52,6 +61,15 @@ export class LearnerInfoComponent implements OnInit, OnDestroy {
       this.contextPackService.getContextPackById(packID).subscribe(pack => {
         this.assignedPacks.push(pack);
       });}});
+  }
+
+
+  submitContextPackID(){
+
+    console.log(this.id);
+    console.log(this.ctxID);
+    this.learnerService.addContextPackIdToLearner(this.ctxID, this.id).subscribe();
+    window.location.reload();
   }
 }
 

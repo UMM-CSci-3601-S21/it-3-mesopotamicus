@@ -21,7 +21,7 @@ export class LearnerListComponent implements OnInit, OnDestroy {
 
   getLearnersSub: Subscription;
 
-  isSignedIn: boolean;
+  isAdmin: boolean;
 
   constructor(private learnerService: LearnerService, private fb: FormBuilder,
     private snackBar: MatSnackBar, private router: Router) { }

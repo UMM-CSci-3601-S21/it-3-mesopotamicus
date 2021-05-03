@@ -221,6 +221,13 @@ describe('editField()', () => {
     expect(spy.updateContextPack).toHaveBeenCalledTimes(3);
   });
 
+  it('organizes updates correctly', () => {
+    expect(spy.updateWordList).toHaveBeenCalledTimes(0);
+    spy.updateWordList.and.returnValue(of(MockContextPackService.testContextPacks[0]));
+    component.update(component.contextpack,[component.contextpack.wordlists[0].name,'test','name']);
+    expect(spy.updateWordList).toHaveBeenCalled();
+  });
+
   describe('editField()', () => {
     it('calls contextpackservice.updateWordlist with correct parameters', () => {
       expect(spy.updateWordList).toHaveBeenCalledTimes(0);

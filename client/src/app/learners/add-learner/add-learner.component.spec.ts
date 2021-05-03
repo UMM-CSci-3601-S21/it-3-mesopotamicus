@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, AbstractControl } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
@@ -14,6 +15,7 @@ import { LearnerService } from '../learner.service';
 import { AddLearnerComponent } from './add-learner.component';
 
 describe('AddLearnerComponent', () => {
+  let addLearnerForm: FormGroup;
   let component: AddLearnerComponent;
   let fixture: ComponentFixture<AddLearnerComponent>;
 
@@ -23,6 +25,7 @@ describe('AddLearnerComponent', () => {
         RouterTestingModule,
         MatCardModule,
         MatSnackBarModule,
+        MatFormFieldModule,
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule
@@ -41,10 +44,18 @@ describe('AddLearnerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddLearnerComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
+    component.isAdmin = true;
+    addLearnerForm = component.learnerForm;
+    expect(addLearnerForm).toBeDefined();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(addLearnerForm).toBeTruthy();
+  });
+  it('should check for admin privileges', () => {
+    expect(component.isAdmin).toBeTruthy();
   });
 });

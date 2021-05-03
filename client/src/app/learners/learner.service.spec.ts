@@ -71,10 +71,17 @@ describe('LearnerService', () => {
 
     it('should check strings with admin checker', () => {
       expect(service.checkIfAdmin('true')).toEqual(true);
-      expect(service.checkIfAdmin('false')).toEqual(false);
+      expect(service.checkIfAdmin('dusafh')).toEqual(false);
     });
     it('should check strings with login checker', () => {
       expect(service.checkIfLoggedIn('true')).toEqual(true);
-      expect(service.checkIfLoggedIn('false')).toEqual(false);
+      expect(service.checkIfLoggedIn('fdsiajfods')).toEqual(false);
+    });
+
+    it('filters learners',() => {
+      expect(service.filterLearners([], {name: 'test'})).toEqual([]);
+      expect(service.filterLearners(learnersTest, {name:''})).toEqual(learnersTest);
+      expect(service.filterLearners(learnersTest, { name: 'asdadsa'}).length).toEqual(0);
+      expect(service.filterLearners(learnersTest, { name: 'testtwo'}).length).toEqual(1);
     });
 });

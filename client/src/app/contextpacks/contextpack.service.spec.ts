@@ -122,6 +122,9 @@ describe('Context Pack service: ', () => {
   it('should check some strings with login checker', () => {
     expect(contextpackService.checkIfLoggedIn('true')).toEqual(true);
   });
+  it('should return false on incorrect strings', () => {
+    expect(contextpackService.checkIfLoggedIn('anduawfui')).toBeFalsy();
+  });
 
   it('filterContextPack() filters by name', () => {
     expect(testContextPacks.length).toBe(3);

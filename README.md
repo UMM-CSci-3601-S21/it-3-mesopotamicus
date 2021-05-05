@@ -15,7 +15,7 @@
   - [Common commands](#common-commands)
 - [Contributors](#contributors)
 
-Word River is a tool for organizing words and their respective forms into wordlists and those wordlists into contextpacks.
+Word River is a tool for organizing words and their respective forms into wordlists and those wordlists into contextpacks. Teacher can use WordRiver to assign these Contextpacks to specific learner profiles.
 
 Here is a selection of the features that can be used in WordRiver:
 

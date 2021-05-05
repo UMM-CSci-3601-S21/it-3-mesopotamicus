@@ -43,6 +43,8 @@ A series of issues we wish to resolve or features we wish to implement:
 
 - Unassign ContextPacks to Learners: Users cannot currently unassign contextpacks to learners 
 - Prevent Multiple ContextPacks from being assigned to learners: Currently, Users can assign multiple of the same pack to a learner
+- Fix various formatting/CSS issues: Certain elements are not spaced in a way that is visually appealing
+- Add possible importing feature: allow users to import contextpacks into WordRiver 
 
 ## [Pamphlet](pamphlet.JPG)
 

@@ -44,12 +44,13 @@ A series of issues we wish to resolve or features we wish to implement:
 - Unassign ContextPacks to Learners: Users cannot currently unassign contextpacks to learners 
 - Prevent Multiple ContextPacks from being assigned to learners: Currently, Users can assign multiple of the same pack to a learner
 
-## [Pamphlet](pamphlet.pdf)
+## [Pamphlet](pamphlet.JPG)
 
 
 ## Setting up API key for Google Oauth
 
-The process to set up your own API key for Oauth 2.0 is found at https://developers.google.com/identity/protocols/oauth2. The API key needs to be replaced in three different locations: 
+The process to set up your own API key for Oauth 2.0 is found at https://developers.google.com/identity/protocols/oauth2. The API keys needs to be replaced in line 68 of UserController.java.
+
 ## [Development](DEVELOPMENT.md)
 
 Instructions on setting up the development environment and working with the code are in [the development guide](DEVELOPMENT.md).

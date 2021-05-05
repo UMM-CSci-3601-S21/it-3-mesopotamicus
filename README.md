@@ -7,22 +7,51 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/UMM-CSci-3601-S21/it-3-mesopotamicus?branch=main)](https://bettercodehub.com/)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/UMM-CSci-3601-S21/it-3-mesopotamicus.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/UMM-CSci-3601-S21/it-3-mesopotamicus/alerts/)
 
+- [Description](#description)
+- [To-do List](#to-do-list)
+- [Pamphlet](#pamphlet)
+- [Setting up API key for Google Oauth](#setting-up-api-key-for-google-oauth)
 - [Development](#development)
   - [Common commands](#common-commands)
-- [Deployment](#deployment)
-- [Resources](#resources)
 - [Contributors](#contributors)
-- [Changing the name](#changing-the-name)
 
-This is your starter code for Iteration 1.
+Word River is a tool for organizing words and their respective forms into wordlists and those wordlists into contextpacks. Teacher can use WordRiver to assign these Contextpacks to specific learner profiles.
 
-There are a number of pieces in this production template to help you get started. As you work on your project, you should replace some of these pieces with elements of your project and remove whatever you don't need (e.g., markdown files, JSON data files, or any remnants of the labs). We include, for example, the users parts of the
-previous labs. These are almost certainly not relevant to your project
-and should be removed once you've started.
+Here is a selection of the features that can be used in WordRiver:
 
-:exclamation: You should remove this sentence and the text above, and
-replace them with least an elevator pitch description of your project so that
-if someone comes to this repo they'll know what the project is about.
+
+- Sign-in Feature: Users that are registered within the User database and have admin privileges have access to a variety of features
+- Add ContextPack: Signed-in users can create new ContextPacks to a level to a level of detail going down to each individual word form
+- Create Learner: Signed-in users can create new learner profiles and assign ContextPacks to them
+- Edit ContextPacks/Wordlists: Signed-in users can edit any ContextPack/Wordlist to any extent
+- Adding Wordlists: Signed-in users can add Wordlists to any currently existing ContextPack
+- Export a Contextpack: Users can export a ContextPack into a JSON file
+
+
+## Description
+
+- Languages: Java, HTML, CSS, Typescript
+- Testing: Karma and Cypress
+- Frameworks: Javalin and Angular
+- APIs used: Google Oauth 2.0 Api
+
+## To-do List
+
+A series of issues we wish to resolve or features we wish to implement:
+
+- Unassign ContextPacks to Learners: Users cannot currently unassign contextpacks to learners 
+- The ability to delete learners from the database
+- Prevent Multiple ContextPacks from being assigned to learners: Currently, Users can assign multiple of the same pack to a learner
+- Fix various formatting/CSS issues: Certain elements are not spaced in a way that is visually appealing
+- Add possible importing feature: allow users to import contextpacks into WordRiver 
+- Another feature we would have liked to implement would have been the ability for each person that signed in to have their own set of learners and context packs
+
+## [Pamphlet](pamphlet.JPG)
+
+
+## Setting up API key for Google Oauth
+
+The process to set up your own API key for Oauth 2.0 is found at https://developers.google.com/identity/protocols/oauth2. The API keys needs to be replaced in line 68 of UserController.java.
 
 ## [Development](DEVELOPMENT.md)
 
@@ -42,31 +71,8 @@ From the `client` directory:
 From the `database` directory:
 - `./mongoseed.sh` (or `.\mongoseed.bat` on Windows) to seed the database
 
-## [Deployment](DEPLOYMENT.md)
-
-Instructions on how to create a DigitalOcean Droplet and setup your project are in [the deployment guide](DEPLOYMENT.md).
-
-## [Resources](RESOURCES.md)
-
-Additional resources on tooling and techniques are in [the resources list](RESOURCES.md).
-
 ## Contributors
 
 This contributors to this project can be seen [here](../../graphs/contributors).
 
-## Changing the name
 
-The project by default has the name "CSCI 3601 Iteration Template". There are a few places you need to change to make this the name you want:
-
-- The title of this README.md
-- [`server/src/main/java/umm3601/Server.java`](server/src/main/java/umm3601/Server.java)
-  - The `appName` variable
-- [`client/src/app/app.component.ts`](client/src/app/app.component.ts)
-  - The `title` variable
-  - Also the associated unit and E2E tests will need to be changed.
-- [`client/src/app/app.component.html`](client/src/app/app.component.html)
-  - The `mat-toolbar` element for the navigation drawer is just "Client" by default.
-- [`client/src/index.html`](client/src/index.html)
-  - The `title` element
-
-You can go ahead and remove this section of the README once you have changed the name.

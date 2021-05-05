@@ -13,8 +13,6 @@
 - [Setting up API key for Google Oauth](#setting-up-api-key-for-google-oauth)
 - [Development](#development)
   - [Common commands](#common-commands)
-- [Deployment](#deployment)
-- [Resources](#resources)
 - [Contributors](#contributors)
 
 Word River is a tool for organizing words and their respective forms into wordlists and those wordlists into contextpacks.
@@ -70,14 +68,6 @@ From the `client` directory:
 
 From the `database` directory:
 - `./mongoseed.sh` (or `.\mongoseed.bat` on Windows) to seed the database
-
-## [Deployment](DEPLOYMENT.md)
-
-Instructions on how to create a DigitalOcean Droplet and setup your project are in [the deployment guide](DEPLOYMENT.md).
-
-## [Resources](RESOURCES.md)
-
-Additional resources on tooling and techniques are in [the resources list](RESOURCES.md).
 
 ## Contributors
 

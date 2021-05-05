@@ -46,7 +46,7 @@ A series of issues we wish to resolve or features we wish to implement:
 - Fix various formatting/CSS issues: Certain elements are not spaced in a way that is visually appealing
 - Add possible importing feature: allow users to import contextpacks into WordRiver 
 
-## [Pamphlet](pamphlet.jpg)
+## [Pamphlet](pamphlet.JPG)
 
 
 ## Setting up API key for Google Oauth

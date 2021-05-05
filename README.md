@@ -46,7 +46,7 @@ A series of issues we wish to resolve or features we wish to implement:
 - Add possible importing feature: allow users to import contextpacks into WordRiver 
 - Another feature we would have liked to implement would have been the ability for each person that signed in to have their own set of learners and context packs
 
-## [Pamphlet](pamphlet.JPG)
+## [Pamphlet](WordRiverfinal.pdf)
 
 
 ## Setting up API key for Google Oauth

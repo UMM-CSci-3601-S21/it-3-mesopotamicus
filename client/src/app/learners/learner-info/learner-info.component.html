@@ -1,0 +1,25 @@
+<button mat-mini-fab class="back-button" color="primary"matTooltip="Back to Learners" matTooltipPosition="right" routerLink="/learner" data-test="backButton">
+  <mat-icon class="md-24" aria-label="Back Button">keyboard_backspace</mat-icon>
+</button>
+<mat-card>
+<h1 class="learner-name" *ngIf="learner">{{this.learner.name}}</h1>
+</mat-card>
+
+<mat-form-field> Assign New Context Pack
+<mat-select [(ngModel)]="ctxID"[(ngModel)]="name" ngDefaultControl>
+  <mat-option *ngFor="let ctxPack of this.allCxtPacks" value={{ctxPack._id}}>{{ctxPack.name}}</mat-option>
+</mat-select>
+</mat-form-field>
+<button mat-raised-button (click)="submitContextPackID()">Assign Pack</button>
+
+
+ <h1>Assigned Packs:</h1>
+
+<div fxLayout="row">
+      <div fxLayout="row wrap" fxLayoutGap="10px" class="contextpack-cards-container">
+        <app-contextpack-card simple="true" *ngFor="let contextpack of assignedPacks" class="contextpack-card" [contextpack]="contextpack"  fxFlex="1 1 280px"></app-contextpack-card>
+      </div>
+
+  </div>
+
+

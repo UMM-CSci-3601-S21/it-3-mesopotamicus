@@ -1,0 +1,34 @@
+.mat-card {
+  margin-bottom: 7px;
+}
+
+
+.learner-card{
+  width: 100%;
+  height: 0%;
+  position: relative;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+.add-learner-fab {
+  position: relative;
+  float: left;
+  background-color: skyblue;
+}
+
+.learner-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field {
+  align-items: center;
+}
+
+.input{
+  align-items: center;
+  display:flex;
+  justify-content: center;
+}

@@ -16,7 +16,11 @@
   background-image: url("/assets/img/btn_google_signin_light_normal_web.png");
 
 }
-
+.bg{
+  background-image: url('assets/img/bg.png');
+  background-size: cover;
+  height: 100vh;
+}
 #googleBtn:hover {
   background-image: url("/assets/img/btn_google_signin_light_focus_web.png");
 }

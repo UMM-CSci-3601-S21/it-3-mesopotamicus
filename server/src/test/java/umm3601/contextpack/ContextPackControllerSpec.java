@@ -24,7 +24,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-
+import com.mongodb.client.model.Filters;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -574,6 +574,35 @@ public class ContextPackControllerSpec {
      assertThrows(NotFoundResponse.class, ()->{
        list.addWord( posArray, "banana");
      });
+
+    }
+
+    @Test
+    public void addNewWordlist(){
+
+      String testWordList = "{" + "\"name\": \"Test\"," + "\"enabled\": true," + "\"nouns\": []," + "\"verbs\": []," + "\"adjectives\": []," + "\"misc\": []" + "}";
+
+      String format = "Document{{name=Test, enabled=true, nouns=[], adjectives=[], verbs=[], misc=[]}}";
+
+      String IdTest = testID.toHexString();
+
+      mockReq.setBodyContent(testWordList);
+      mockReq.setMethod("POST");
+
+      ObjectId Id = testID;
+
+      Context ctx = ContextUtil.init(mockReq, mockRes, "/api/contextpacks/:id", ImmutableMap.of("id", IdTest));
+
+      contextPackController.addWordList(ctx);
+
+      assertEquals(201, mockRes.getStatus());
+      Document cxtPack = db.getCollection("contextpacks").find(Filters.eq("_id", Id)).first();
+
+      ArrayList<Wordlist> ctxWrdList = (ArrayList<Wordlist>) cxtPack.get("wordlists");
+
+      String ctxWrdListAdded = ctxWrdList.toString();
+
+      assertTrue(ctxWrdListAdded.contains(format));
 
     }
 

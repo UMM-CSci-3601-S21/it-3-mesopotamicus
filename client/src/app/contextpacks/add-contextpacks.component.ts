@@ -182,7 +182,6 @@ export class AddContextpacksComponent implements OnInit {
   }
   validateWordlists() {
     const wordlistsA = this.contextPackForm.controls.wordlists as FormArray;
-    // console.log(XsA.value);
     this.formErrors.wordlists = [];
     let x = 1;
     while (x <= wordlistsA.length) {

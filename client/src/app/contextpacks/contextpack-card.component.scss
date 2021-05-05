@@ -56,7 +56,30 @@ h2, mat-card-title, mat-card-subtitle{
   background-color: #EDB76A;
 }
 
+.enabledWordlist{
+  margin-left: 10px;
+}
+
+.submitbutton{
+  margin-left: 10px;
+}
+
 mat-card-header {
   text-align: left;
 }
+
+.checkmark{
+  float: left;
+  color:green;
+}
+
+.red-x{
+  color:red;
+}
+
+.viewInfoButton{
+  margin-left: 30px !important;
+
+}
+
 

@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "6079d0ef60c5adfd3bbccccc"
+  },
+  "name": "Josh",
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
+},
+
+{
+  "_id": {
+    "$oid": "588935f51c55b55c75abbbbb"
+  },
+  "name": "Jeff",
+  "assignedContextPacks": ["588935f55b432bb2ff322165", "588935f55b432bb2ff322169"]
+},
+
+{
+  "_id": {
+    "$oid": "4079d0ef60c5adfd3bbccccc"
+  },
+  "name": "Elmurad",
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
+},
+
+{
+  "_id": {
+    "$oid": "888935f51c55b55c75abbbbb"
+  },
+  "name": "Lloyd",
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
+},
+
+{
+  "_id": {
+    "$oid": "788935f51c55b55c75abbbbb"
+  },
+  "name": "Blake",
+  "assignedContextPacks": ["588935f57546a2daea44de7c", "588935f55b432bb2ff322169"]
+}
+]

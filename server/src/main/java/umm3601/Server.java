@@ -16,6 +16,7 @@ import io.javalin.core.util.RouteOverviewPlugin;
 import io.javalin.http.Context;
 import io.javalin.http.UnauthorizedResponse;
 import umm3601.contextpack.ContextPackController;
+import umm3601.learner.LearnerController;
 import umm3601.user.UserController;
 
 public class Server {
@@ -42,6 +43,8 @@ public class Server {
 
     ContextPackController contextPackController = new ContextPackController(database);
     UserController userController = new UserController(database);
+    LearnerController learnerController = new LearnerController(database);
+
 
     Javalin server = serverStarter(mongoClient);
 
@@ -53,6 +56,14 @@ public class Server {
     server.get("/api/contextpacks", contextPackController::getContextPacks, roles(MyRole.ANYONE));
     server.get("/api/contextpacks/:id", contextPackController::getContextPack, roles(MyRole.ANYONE));
 
+    server.get("/api/learners", learnerController::getLearners, roles(MyRole.ANYONE));
+
+    server.get("/api/learners/:id", learnerController::getLearner, roles(MyRole.ANYONE));
+
+    server.post("/api/learners/:add", learnerController::addNewLearner, roles(MyRole.ADMIN));
+
+    server.post("/api/learner/:id", learnerController::addContextPackToLearner, roles(MyRole.ADMIN));
+
     server.post("/api/users", userController::checkToken, roles(MyRole.ANYONE));
 
     server.post("/api/contextpacks", contextPackController::addNewContextPack, roles(MyRole.USER));
@@ -60,6 +71,8 @@ public class Server {
     server.post("/api/contextpacks/:id/editpack", contextPackController::editContextPack, roles(MyRole.ADMIN));
     // editing information about wordlists
     server.post("/api/contextpacks/:id/editlist", contextPackController::editWordlist, roles(MyRole.ADMIN));
+
+    server.post("/api/contextpacks/:id", contextPackController::addWordList, roles(MyRole.ADMIN));
     // add forms to words in wordlists
 
     server.exception(Exception.class, (e, ctx) -> {

@@ -40,9 +40,11 @@ Here is a selection of the features that can be used in WordRiver:
 A series of issues we wish to resolve or features we wish to implement:
 
 - Unassign ContextPacks to Learners: Users cannot currently unassign contextpacks to learners 
+- The ability to delete learners from the database
 - Prevent Multiple ContextPacks from being assigned to learners: Currently, Users can assign multiple of the same pack to a learner
 - Fix various formatting/CSS issues: Certain elements are not spaced in a way that is visually appealing
 - Add possible importing feature: allow users to import contextpacks into WordRiver 
+- Another feature we would have liked to implement would have been the ability for each person that signed in to have their own set of learners and context packs
 
 ## [Pamphlet](pamphlet.JPG)
 

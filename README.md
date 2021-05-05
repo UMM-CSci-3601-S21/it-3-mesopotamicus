@@ -7,6 +7,9 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/UMM-CSci-3601-S21/it-3-mesopotamicus?branch=main)](https://bettercodehub.com/)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/UMM-CSci-3601-S21/it-3-mesopotamicus.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/UMM-CSci-3601-S21/it-3-mesopotamicus/alerts/)
 
+- [Description](#description)
+- [To-do List](#to-do-list)
+- [Pamphlet](#pamphlet)
 - [Development](#development)
   - [Common commands](#common-commands)
 - [Deployment](#deployment)
@@ -14,15 +17,38 @@
 - [Contributors](#contributors)
 - [Changing the name](#changing-the-name)
 
-This is your starter code for Iteration 1.
+Word River is a tool for organizing words and their respective forms into wordlists and those wordlists into contextpacks.
 
-There are a number of pieces in this production template to help you get started. As you work on your project, you should replace some of these pieces with elements of your project and remove whatever you don't need (e.g., markdown files, JSON data files, or any remnants of the labs). We include, for example, the users parts of the
-previous labs. These are almost certainly not relevant to your project
-and should be removed once you've started.
+Here is a selection of the features that can be used in WordRiver:
+
+
+- Sign-in Feature: Users that are registered within the User database and have admin privileges have access to a variety of features
+- Add ContextPack: Signed-in users can create new ContextPacks to a level to a level of detail going down to each individual word form
+- Create Learner: Signed-in users can create new learner profiles and assign ContextPacks to them
+- Edit ContextPacks/Wordlists: Signed-in users can edit any ContextPack/Wordlist to any extent
+- Adding Wordlists: Signed-in users can add Wordlists to any currently existing ContextPack
+- Export a Contextpack: Users can export a ContextPack into a JSON file
 
 :exclamation: You should remove this sentence and the text above, and
 replace them with least an elevator pitch description of your project so that
 if someone comes to this repo they'll know what the project is about.
+
+## Description
+
+- Languages: Java, HTML, CSS, Typescript
+- Testing: Karma and Cypress
+- Frameworks: Javalin and Angular
+
+
+## To-do List
+
+A series of issues we wish to resolve or features we wish to implement:
+
+- Unassign ContextPacks to Learners: Users cannot currently unassign contextpacks to learners 
+- Prevent Multiple ContextPacks from being assigned to learners: Currently, Users can assign multiple of the same pack to a learner
+
+## [Pamphlet](pamphlet.pdf)
+
 
 ## [Development](DEVELOPMENT.md)
 

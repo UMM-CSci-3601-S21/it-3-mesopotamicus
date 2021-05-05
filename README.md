@@ -10,12 +10,12 @@
 - [Description](#description)
 - [To-do List](#to-do-list)
 - [Pamphlet](#pamphlet)
+- [Setting up API key for Google Oauth](#setting-up-api-key-for-google-oauth)
 - [Development](#development)
   - [Common commands](#common-commands)
 - [Deployment](#deployment)
 - [Resources](#resources)
 - [Contributors](#contributors)
-- [Changing the name](#changing-the-name)
 
 Word River is a tool for organizing words and their respective forms into wordlists and those wordlists into contextpacks.
 
@@ -29,16 +29,13 @@ Here is a selection of the features that can be used in WordRiver:
 - Adding Wordlists: Signed-in users can add Wordlists to any currently existing ContextPack
 - Export a Contextpack: Users can export a ContextPack into a JSON file
 
-:exclamation: You should remove this sentence and the text above, and
-replace them with least an elevator pitch description of your project so that
-if someone comes to this repo they'll know what the project is about.
 
 ## Description
 
 - Languages: Java, HTML, CSS, Typescript
 - Testing: Karma and Cypress
 - Frameworks: Javalin and Angular
-
+- APIs used: Google Oauth 2.0 Api
 
 ## To-do List
 
@@ -50,6 +47,9 @@ A series of issues we wish to resolve or features we wish to implement:
 ## [Pamphlet](pamphlet.pdf)
 
 
+## Setting up API key for Google Oauth
+
+The process to set up your own API key for Oauth 2.0 is found at https://developers.google.com/identity/protocols/oauth2. The API key needs to be replaced in three different locations: 
 ## [Development](DEVELOPMENT.md)
 
 Instructions on setting up the development environment and working with the code are in [the development guide](DEVELOPMENT.md).
@@ -80,19 +80,4 @@ Additional resources on tooling and techniques are in [the resources list](RESOU
 
 This contributors to this project can be seen [here](../../graphs/contributors).
 
-## Changing the name
 
-The project by default has the name "CSCI 3601 Iteration Template". There are a few places you need to change to make this the name you want:
-
-- The title of this README.md
-- [`server/src/main/java/umm3601/Server.java`](server/src/main/java/umm3601/Server.java)
-  - The `appName` variable
-- [`client/src/app/app.component.ts`](client/src/app/app.component.ts)
-  - The `title` variable
-  - Also the associated unit and E2E tests will need to be changed.
-- [`client/src/app/app.component.html`](client/src/app/app.component.html)
-  - The `mat-toolbar` element for the navigation drawer is just "Client" by default.
-- [`client/src/index.html`](client/src/index.html)
-  - The `title` element
-
-You can go ahead and remove this section of the README once you have changed the name.
